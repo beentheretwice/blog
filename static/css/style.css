@@ -89,10 +89,29 @@ header nav {
 }
 
 header nav .brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
   font-size: 1.25rem;
   font-weight: 500;
   color: white;
   letter-spacing: 0.5px;
+}
+
+header nav .brand .logo {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+}
+
+header nav .brand span {
+  display: inline;
+}
+
+@media (max-width: 480px) {
+  header nav .brand span {
+    display: none;
+  }
 }
 
 header nav .lang-switch {
