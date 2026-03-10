@@ -2,7 +2,7 @@
   <nav>
     <a href="{{ "/" | relLangURL }}">{{ .Site.Title }}</a>
     {{ range .Site.Languages }}
-    <a href="{{ "/" | relLangURL . }}">{{ .LanguageName }}</a>
+    <a href="/{{ .Lang }}/">{{ .LanguageName }}</a>
     {{ end }}
   </nav>
 </header>
