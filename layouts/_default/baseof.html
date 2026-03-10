@@ -8,7 +8,7 @@
   
   <link rel="canonical" href="{{ .Permalink }}">
   {{ range .Site.Languages }}
-  <link rel="alternate" hreflang="{{ .Lang }}" href="{{ relURL (printf "/%s/" .Lang) }}">
+  <link rel="alternate" hreflang="{{ .Lang }}" href="{{ relURL (printf "%s/" .Lang) }}">
   {{ end }}
   <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
   

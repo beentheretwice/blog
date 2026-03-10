@@ -1,9 +1,9 @@
 <header>
   <nav>
-    <a href="{{ "/" | relLangURL }}" class="brand">{{ .Site.Title }}</a>
+    <a href="{{ .Site.BaseURL }}" class="brand">{{ .Site.Title }}</a>
     <div class="lang-switch">
       {{ range .Site.Languages }}
-      <a href="{{ relURL (printf "/%s/" .Lang) }}">{{ .LanguageName }}</a>
+      <a href="{{ relURL (printf "%s/" .Lang) }}">{{ .LanguageName }}</a>
       {{ end }}
     </div>
   </nav>

@@ -1,0 +1,68 @@
+name: Test Hugo Build
+on:
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.128.0
+    steps:
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+
+      - name: Install linkchecker
+        run: sudo apt-get update && sudo apt-get install -y linkchecker
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Build with Hugo
+        run: hugo --minify --baseURL "http://localhost:8080/blog/"
+
+      - name: Verify build
+        run: test -d public && test -f public/index.html
+
+      - name: Start local server
+        run: |
+          mkdir -p /tmp/serve
+          ln -s $(pwd)/public /tmp/serve/blog
+          cd /tmp/serve
+          python3 -m http.server 8080 > /tmp/server.log 2>&1 &
+          echo $! > /tmp/server.pid
+          sleep 2
+          curl -s -o /dev/null http://localhost:8080/blog/ || (cat /tmp/server.log && exit 1)
+
+      - name: Check internal links
+        run: |
+          linkchecker \
+            --no-warnings \
+            --timeout 30 \
+            --threads 4 \
+            --ignore-url="^mailto:" \
+            --ignore-url="^tel:" \
+            "http://localhost:8080/blog/" 2>&1 | tee linkcheck-output.txt || EXIT_CODE=$?
+
+          if [ "${EXIT_CODE:-0}" -ne 0 ]; then
+            echo "::error::Broken links found. See output above."
+            exit 1
+          fi
+
+          if grep -q "[1-9][0-9]* errors found" linkcheck-output.txt; then
+            echo "::error::Broken links detected in output."
+            exit 1
+          fi
+
+          echo "✓ All internal links valid"
+
+      - name: Stop local server
+        if: always()
+        run: |
+          if [ -f /tmp/server.pid ]; then
+            kill $(cat /tmp/server.pid) 2>/dev/null || true
+          fi
