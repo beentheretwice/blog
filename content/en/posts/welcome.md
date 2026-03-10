@@ -4,21 +4,21 @@ date: 2026-03-10
 draft: false
 description: "Welcome to the official WaqtSalat blog. Stay updated with prayer times, Islamic content, and app updates. Learn about prayer calculation methods, offline-first design, and our open-source mission."
 tags: ["announcement", "welcome"]
-cover: "/images/welcome-cover.jpg"
-image: "/images/welcome-thumb.jpg"
+cover: "/images/welcome-cover.png"
+image: "/images/welcome-cover.png"
 tldr: "WaqtSalat is a Moroccan prayer times PWA that's offline-first, ad-free, and open source. Follow our blog for updates on Islamic content and prayer app features."
 author: "WaqtSalat Team"
 ---
 
 We're excited to launch the official WaqtSalat blog — your source for everything related to Islamic prayer times, content updates, and the prayer app that helps Muslims across Morocco maintain their worship consistency.
 
-![Islamic prayer times on smartphone with mosque in background](/images/welcome-hero.jpg "Muslim person checking prayer times on smartphone with mosque silhouette in background")
+![Islamic prayer times on smartphone with mosque in background](/images/welcome-hero.png "Muslim person checking prayer times on smartphone with mosque silhouette in background")
 
 ## About WaqtSalat
 
 WaqtSalat is a Moroccan prayer times Progressive Web App (PWA) designed specifically for Muslims in Morocco. Our mission is simple: provide accurate prayer times without compromising your privacy or requiring constant internet access.
 
-![WaqtSalat app interface showing prayer times](/images/app-interface.jpg "WaqtSalat app interface showing Fajr, Dhuhr, Asr, Maghrib, and Isha prayer times with next prayer countdown")
+![WaqtSalat app interface showing prayer times](/images/app-interface.png "WaqtSalat app interface showing Fajr, Dhuhr, Asr, Maghrib, and Isha prayer times with next prayer countdown")
 
 ### Key Features
 
@@ -33,7 +33,7 @@ WaqtSalat is a Moroccan prayer times Progressive Web App (PWA) designed specific
 
 Internet connectivity can be inconsistent in many parts of Morocco. An offline-first approach ensures you always have access to your prayer times, whether you're in rural areas, commuting, or experiencing network outages.
 
-![Person using phone in rural Morocco](/images/offline-morocco.jpg "Moroccan countryside with person checking smartphone prayer times in rural setting")
+![Person using phone in rural Morocco](/images/offline-morocco.png "Moroccan countryside with person checking smartphone prayer times in rural setting")
 
 When you first open WaqtSalat, it downloads prayer time data and caches it locally. This cached data remains accessible even without any internet connection, ensuring you never miss a prayer.
 
@@ -41,7 +41,7 @@ When you first open WaqtSalat, it downloads prayer time data and caches it local
 
 WaqtSalat uses the Habous Ministry's official calculation method for determining prayer times in Morocco. This method sets specific angles for Fajr (19°) and Isha (17°), which distinguishes Moroccan prayer times from other regional calculation approaches.
 
-![Prayer time calculation diagram showing angle measurements](/images/prayer-calculation.jpg "Diagram showing how prayer times are calculated using solar angles")
+![Prayer time calculation diagram showing angle measurements](/images/prayer-calculation.png "Diagram showing how prayer times are calculated using solar angles")
 
 ### Why This Matters
 
@@ -51,7 +51,7 @@ Different Muslim countries and regions use varying calculation methods. The Habo
 
 We believe transparency builds trust. That's why WaqtSalat is fully open source — anyone can review the code, verify the calculation methods, and suggest improvements.
 
-![GitHub repository screen showing code commits](/images/github-code.jpg "GitHub repository screen showing commits and contributions from developers")
+![GitHub repository screen showing code commits](/images/github-code.png "GitHub repository screen showing commits and contributions from developers")
 
 This approach ensures:
 
@@ -71,7 +71,11 @@ We're actively working on:
 
 Follow our blog for regular updates on Islamic content, prayer time accuracy, and new features as we develop WaqtSalat.
 
-![Community of people using prayer app together](/images/community.jpg "Diverse group of people in prayer showing community using WaqtSalat app")
+![Community of people using prayer app together](/images/community.png "Diverse group of people in prayer showing community using WaqtSalat app")
+
+---
+
+#PrayerTimes #Morocco #IslamicApps #OfflineFirst #OpenSource #Habous #PWA
 
 ---
 

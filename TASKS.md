@@ -8,16 +8,29 @@
 4. ✓ Broken links fixed (relURL paths)
 5. ✓ Pre-commit link checker implemented
 6. ✓ Language switching working
+7. ✓ AIO/AEO SEO structure (TL;DR, FAQs, citations, schemas)
+8. ✓ JSON-LD schemas (Article, FAQPage, HowTo)
+9. ✓ AI-generated images with alt text (7 images)
+10. ✓ Favicon from app (SVG)
+11. ✓ System fonts only (no web fonts)
+12. ✓ Hashtags added
+13. ✓ Content rules documented (CONTENT_RULES.md)
+14. ✓ App logo as blog header
 
 ## Remaining Tasks
 
-- [ ] Posts follow AIO/AEO SEO rules (TL;DR, FAQs, citations, schema)
-- [ ] Images with alt text in all posts
-- [ ] JSON-LD schemas enhanced (Article, HowTo, FAQPage)
-- [ ] Test posts with link checker
+- [ ] One image per paragraph + cover image for all posts
+- [ ] Verify white background + black text + system fonts
+- [ ] Add hashtags to posts
+- [ ] Enhance remaining posts with full SEO structure
+- [ ] Document content rules in README/AGENT.md
 
-## Next Steps
+## Content Rules (to document)
 
-1. Update single post layout for SEO structure
-2. Add sample post with full SEO features
-3. Enhance existing posts with images and structure
+- White background, black text, system fonts
+- Cover image + one image per paragraph
+- TL;DR box at top
+- FAQ section with schema
+- Citations/references
+- Hashtags for discoverability
+- Images with descriptive alt text

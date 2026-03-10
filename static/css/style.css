@@ -21,8 +21,8 @@
   --shadow-3: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   
   /* Typography */
-  --font-sans: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  --font-display: 'Roboto', var(--font-sans);
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-display: var(--font-sans);
   
   /* Spacing */
   --space-xs: 0.25rem;
@@ -89,10 +89,29 @@ header nav {
 }
 
 header nav .brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
   font-size: 1.25rem;
   font-weight: 500;
   color: white;
   letter-spacing: 0.5px;
+}
+
+header nav .brand .logo {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+}
+
+header nav .brand span {
+  display: inline;
+}
+
+@media (max-width: 480px) {
+  header nav .brand span {
+    display: none;
+  }
 }
 
 header nav .lang-switch {
@@ -101,15 +120,17 @@ header nav .lang-switch {
   background: rgba(255,255,255,0.1);
   padding: 4px;
   border-radius: var(--radius-md);
+  align-items: center;
 }
 
 header nav .lang-switch a {
   color: rgba(255,255,255,0.8);
   font-size: 0.875rem;
-  padding: var(--space-xs) var(--space-md);
+  padding: var(--space-xs) var(--space-sm);
   border-radius: var(--radius-sm);
   transition: all 0.2s ease;
   font-weight: 500;
+  white-space: nowrap;
 }
 
 header nav .lang-switch a:hover {

@@ -6,6 +6,7 @@
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
   <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
   
+  <link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
   <link rel="canonical" href="{{ .Permalink }}">
   {{ range .Site.Languages }}
   <link rel="alternate" hreflang="{{ .Lang }}" href="{{ relURL (printf "%s/" .Lang) }}">
