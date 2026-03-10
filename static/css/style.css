@@ -1,14 +1,41 @@
 :root {
-  --primary: #006233;
-  --primary-dark: #004d26;
-  --primary-light: #008c47;
-  --bg: #0a0a0a;
-  --bg-card: #141414;
-  --text: #f5f5f5;
-  --text-muted: #888;
-  --border: #333;
-  --gradient-start: #006233;
-  --gradient-end: #004d26;
+  /* Material Design Green Palette */
+  --primary: #2E7D32;
+  --primary-dark: #1B5E20;
+  --primary-light: #4CAF50;
+  --primary-bg: #E8F5E9;
+  --accent: #00C853;
+  
+  /* Light Theme */
+  --bg: #FAFAFA;
+  --bg-card: #FFFFFF;
+  --bg-elevated: #FFFFFF;
+  --text: #212121;
+  --text-secondary: #757575;
+  --text-hint: #9E9E9E;
+  --divider: #E0E0E0;
+  
+  /* Shadows (Material Design) */
+  --shadow-1: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  --shadow-2: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  --shadow-3: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  
+  /* Typography */
+  --font-sans: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-display: 'Roboto', var(--font-sans);
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
 }
 
 * {
@@ -18,116 +45,188 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-family: var(--font-sans);
   background: var(--bg);
   color: var(--text);
-  line-height: 1.6;
+  line-height: 1.7;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
-  color: var(--primary-light);
+  color: var(--primary);
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 
 a:hover {
-  color: var(--text);
+  color: var(--primary-dark);
 }
 
-/* Header */
+/* ============================================
+   HEADER - Material App Bar Style
+   ============================================ */
 header {
-  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-  padding: 1.5rem 2rem;
-  border-bottom: 1px solid var(--border);
+  background: var(--primary);
+  color: white;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-2);
 }
 
 header nav {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: var(--space-md) var(--space-lg);
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: var(--space-md);
 }
 
 header nav .brand {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: white;
+  letter-spacing: 0.5px;
 }
 
 header nav .lang-switch {
   display: flex;
-  gap: 1rem;
+  gap: var(--space-xs);
+  background: rgba(255,255,255,0.1);
+  padding: 4px;
+  border-radius: var(--radius-md);
 }
 
 header nav .lang-switch a {
   color: rgba(255,255,255,0.8);
   font-size: 0.875rem;
-  padding: 0.25rem 0.75rem;
-  border-radius: 4px;
-  transition: all 0.2s;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+  font-weight: 500;
 }
 
 header nav .lang-switch a:hover {
-  color: #fff;
-  background: rgba(255,255,255,0.1);
+  color: white;
+  background: rgba(255,255,255,0.15);
 }
 
-/* Main */
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
 main {
   max-width: 900px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: var(--space-xl) var(--space-lg);
   min-height: calc(100vh - 200px);
 }
 
-/* Home Page Hero */
+/* ============================================
+   HERO SECTION - Material Card Style
+   ============================================ */
 .hero {
-  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-  padding: 3rem 2rem;
-  border-radius: 12px;
-  margin-bottom: 2rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  padding: var(--space-xl) var(--space-lg);
+  border-radius: var(--radius-xl);
+  margin-bottom: var(--space-xl);
   text-align: center;
+  box-shadow: var(--shadow-3);
+  color: white;
 }
 
 .hero h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  color: #fff;
+  font-size: 2.25rem;
+  font-weight: 300;
+  margin-bottom: var(--space-sm);
+  letter-spacing: -0.5px;
 }
 
 .hero p {
   color: rgba(255,255,255,0.9);
-  font-size: 1.1rem;
+  font-size: 1.125rem;
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-/* Post Cards */
+/* ============================================
+   POSTS SECTION
+   ============================================ */
 .posts-section h2 {
   font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  font-weight: 500;
+  margin-bottom: var(--space-lg);
   color: var(--text);
+  position: relative;
+  padding-bottom: var(--space-sm);
 }
 
+.posts-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+/* ============================================
+   POST CARDS - Material Card Style
+   ============================================ */
 .post-card {
   background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-lg);
+  box-shadow: var(--shadow-1);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .post-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,98,51,0.2);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-3);
+}
+
+.post-card-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: var(--primary-bg);
+}
+
+.post-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.post-card:hover .post-card-image img {
+  transform: scale(1.05);
+}
+
+.post-card-content {
+  padding: var(--space-lg);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .post-card h3 {
-  margin: 0 0 0.5rem;
+  margin: 0 0 var(--space-sm);
   font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 .post-card h3 a {
@@ -135,72 +234,405 @@ main {
 }
 
 .post-card h3 a:hover {
-  color: var(--primary-light);
+  color: var(--primary);
 }
 
 .post-card time {
-  color: var(--text-muted);
+  color: var(--text-secondary);
   font-size: 0.875rem;
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-md);
 }
 
-.post-card p {
-  color: var(--text-muted);
-  margin: 0;
+.post-card .description {
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-md);
+  flex: 1;
+  line-height: 1.6;
 }
 
-/* Single Post */
+.post-card .read-more {
+  color: var(--primary);
+  font-weight: 500;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  transition: gap 0.2s ease;
+}
+
+.post-card .read-more:hover {
+  gap: var(--space-sm);
+}
+
+/* ============================================
+   SINGLE POST
+   ============================================ */
 article.post {
-  max-width: 700px;
+  max-width: 800px;
+  margin: 0 auto var(--space-xl);
 }
 
+/* TL;DR Box */
+.tldr-box {
+  background: var(--primary-bg);
+  border-left: 4px solid var(--primary);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-xl);
+}
+
+.tldr-box h4 {
+  color: var(--primary-dark);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--space-sm);
+}
+
+.tldr-box p {
+  margin: 0;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* Cover Image */
+.post-cover {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-xl);
+  box-shadow: var(--shadow-2);
+}
+
+.post-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Post Title & Meta */
 article.post h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+  font-size: 2.25rem;
+  font-weight: 400;
+  margin-bottom: var(--space-md);
+  line-height: 1.3;
+  color: var(--text);
 }
 
 article.post .meta {
-  color: var(--text-muted);
-  margin-bottom: 2rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--divider);
+  font-size: 0.9375rem;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
 }
 
+article.post .meta time {
+  display: flex;
+  align-items: center;
+}
+
+article.post .meta .author {
+  color: var(--text-secondary);
+}
+
+/* Post Content */
 article.post .content {
   line-height: 1.8;
 }
 
 article.post .content h2 {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-md);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+article.post .content h3 {
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-md);
+  font-size: 1.25rem;
+  font-weight: 500;
 }
 
 article.post .content p {
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-md);
+  color: var(--text-secondary);
 }
 
-article.post .content ul, article.post .content ol {
-  margin-bottom: 1rem;
-  padding-left: 1.5rem;
+article.post .content ul,
+article.post .content ol {
+  margin-bottom: var(--space-md);
+  padding-left: var(--space-lg);
 }
 
-/* Footer */
-footer {
+article.post .content li {
+  margin-bottom: var(--space-sm);
+}
+
+article.post .content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  margin: var(--space-lg) 0;
+  box-shadow: var(--shadow-1);
+}
+
+article.post .content blockquote {
+  border-left: 4px solid var(--primary);
+  padding-left: var(--space-lg);
+  margin: var(--space-lg) 0;
+  color: var(--text-secondary);
+  font-style: italic;
+  background: var(--primary-bg);
+  border-radius: 0 var(--radius-md);
+}
+
+article.post .content a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+article.post .content a:hover {
+  color: var(--primary-dark);
+}
+
+/* Table of Contents */
+.toc {
   background: var(--bg-card);
-  border-top: 1px solid var(--border);
-  padding: 1.5rem 2rem;
+  border: 1px solid var(--divider);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.toc summary {
+  cursor: pointer;
+  color: var(--primary);
+  font-weight: 500;
+  user-select: none;
+}
+
+.toc summary:hover {
+  color: var(--primary-dark);
+}
+
+.toc ul {
+  margin: var(--space-md) 0;
+  padding-left: var(--space-lg);
+}
+
+.toc li {
+  margin-bottom: var(--space-xs);
+}
+
+/* FAQ Section */
+.faq-section {
+  background: var(--bg-card);
+  border: 1px solid var(--divider);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl) 0;
+  margin: var(--space-xl) 0;
+}
+
+.faq-section h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: var(--space-lg);
+  padding: 0 var(--space-xl);
+}
+
+.faq-list {
+  padding: 0 var(--space-xl);
+}
+
+.faq-item {
+  margin-bottom: var(--space-md);
+  border-bottom: 1px solid var(--divider);
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-question {
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+  padding: var(--space-md) 0;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.faq-question::before {
+  content: '+';
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.faq-item[open] .faq-question::before {
+  content: '-';
+}
+
+.faq-answer {
+  padding: 0 var(--space-lg);
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* References Section */
+.references-section {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--divider);
+}
+
+.references-section h2 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: var(--space-md);
+  color: var(--text);
+}
+
+.references-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: var(--space-md);
+}
+
+.references-list li {
+  padding: var(--space-md);
+  background: var(--bg-card);
+  border: 1px solid var(--divider);
+  border-radius: var(--radius-sm);
+  transition: box-shadow 0.2s;
+}
+
+.references-list li:hover {
+  box-shadow: var(--shadow-1);
+}
+
+.references-list a {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.references-list a:hover {
+  color: var(--primary-dark);
+}
+
+/* Related Posts */
+.related-posts {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--divider);
+}
+
+.related-posts h2 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: var(--space-md);
+  color: var(--text);
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+.related-card {
+  background: var(--bg-card);
+  border: 1px solid var(--divider);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  transition: box-shadow 0.2s;
+}
+
+.related-card:hover {
+  box-shadow: var(--shadow-2);
+}
+
+.related-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.related-card h3 {
+  font-size: 1rem;
+  margin: var(--space-sm) 0;
+}
+
+.related-card h3 a {
+  color: var(--text);
+}
+
+.related-card h3 a:hover {
+  color: var(--primary);
+}
+
+.related-card time {
+  font-size: 0.875rem;
+  color: var(--text-hint);
+}
+
+/* Back Link */
+.back-link {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--divider);
+}
+
+.back-link a {
+  display: inline-block;
+  color: var(--primary);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+  background: var(--text);
+  color: rgba(255,255,255,0.8);
+  padding: var(--space-xl) var(--space-lg);
   text-align: center;
+  margin-top: var(--space-xl);
 }
 
 footer p {
-  color: var(--text-muted);
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-sm);
 }
 
 footer a {
   color: var(--primary-light);
 }
 
-/* RTL Support */
+footer a:hover {
+  color: white;
+}
+
+/* ============================================
+   RTL SUPPORT (Arabic)
+   ============================================ */
 [dir="rtl"] {
   text-align: right;
 }
@@ -208,25 +640,90 @@ footer a {
 [dir="rtl"] article.post .content ul,
 [dir="rtl"] article.post .content ol {
   padding-left: 0;
-  padding-right: 1.5rem;
+  padding-right: var(--space-lg);
 }
 
-/* Responsive */
-@media (max-width: 600px) {
+[dir="rtl"] article.post .content blockquote {
+  border-left: none;
+  border-right: 4px solid var(--primary);
+  padding-left: 0;
+  padding-right: var(--space-lg);
+}
+
+[dir="rtl"] .posts-section h2::after {
+  left: auto;
+  right: 0;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
   header nav {
     flex-direction: column;
     text-align: center;
+    gap: var(--space-sm);
   }
-
+  
   main {
-    padding: 1rem;
+    padding: var(--space-lg) var(--space-md);
   }
-
+  
   .hero {
-    padding: 2rem 1rem;
+    padding: var(--space-lg) var(--space-md);
+    border-radius: var(--radius-lg);
   }
+  
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  article.post {
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+  }
+  
+  article.post h1 {
+    font-size: 1.5rem;
+  }
+  
+  .post-card-content {
+    padding: var(--space-md);
+  }
+  
+  .post-card h3 {
+    font-size: 1.125rem;
+  }
+}
 
+@media (max-width: 480px) {
   .hero h1 {
     font-size: 1.5rem;
+  }
+  
+  .posts-section h2 {
+    font-size: 1.25rem;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+  header, footer {
+    display: none;
+  }
+  
+  main {
+    padding: 0;
+  }
+  
+  .post-card, article.post {
+    box-shadow: none;
+    border: 1px solid #ddd;
   }
 }

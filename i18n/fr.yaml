@@ -2,5 +2,27 @@
   translation: "Accueil"
 - id: posts
   translation: "Articles"
+- id: latestPosts
+  translation: "Derniers Articles"
 - id: readMore
   translation: "Lire la suite"
+- id: noPosts
+  translation: "Pas encore d'articles. Revenez bientôt !"
+- id: publishedOn
+  translation: "Publié le"
+- id: by
+  translation: "par"
+- id: tableOfContents
+  translation: "Table des matières"
+- id: share
+  translation: "Partager cet article"
+- id: relatedPosts
+  translation: "Articles connexes"
+- id: backToBlog
+  translation: "Retour au Blog"
+- id: faq
+  translation: "Questions Fréquentes"
+- id: references
+  translation: "Références"
+- id: tldr
+  translation: "En résumé"

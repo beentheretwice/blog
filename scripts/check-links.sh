@@ -7,8 +7,8 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BLOG_DIR="$(dirname "$SCRIPT_DIR")"
 PUBLIC_DIR="$BLOG_DIR/public"
-PORT=13131
-BASE_URL="http://localhost:$PORT"
+PORT=13132
+BASE_URL="http://localhost:$PORT/blog/"
 
 # Colors
 RED='\033[0;31m'

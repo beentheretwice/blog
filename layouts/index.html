@@ -1,23 +1,32 @@
 {{ define "main" }}
 <div class="hero">
-  <h1>{{ .Site.Title }}</h1>
+  <h1>{{ .Title }}</h1>
   <p>{{ .Site.Params.description }}</p>
 </div>
 
 <section class="posts-section">
-  <h2>Latest Posts</h2>
+  <h2>{{ i18n "latestPosts" | default "Latest Posts" }}</h2>
 
-  {{ $posts := where .Site.RegularPages "Section" "posts" }}
-  {{ if $posts }}
-    {{ range first 5 $posts }}
+  {{ $pages := .Site.RegularPages }}
+  
+  {{ if $pages }}
+    {{ range first 10 $pages }}
     <article class="post-card">
-      <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-      <time>{{ .Date | time.Format ":date_medium" }}</time>
-      {{ with .Description }}<p>{{ . }}</p>{{ end }}
+      {{ with .Params.image }}
+      <div class="post-card-image">
+        <img src="{{ . | relURL }}" alt="{{ $.Title }}" loading="lazy">
+      </div>
+      {{ end }}
+      <div class="post-card-content">
+        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_medium" }}</time>
+        {{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
+        <a href="{{ .Permalink }}" class="read-more">{{ i18n "readMore" | default "Read more" }} →</a>
+      </div>
     </article>
     {{ end }}
   {{ else }}
-    <p>No posts yet. Check back soon!</p>
+    <p>{{ i18n "noPosts" | default "No posts yet. Check back soon!" }}</p>
   {{ end }}
 </section>
 {{ end }}

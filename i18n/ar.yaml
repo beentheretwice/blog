@@ -2,5 +2,27 @@
   translation: "الرئيسية"
 - id: posts
   translation: "المقالات"
+- id: latestPosts
+  translation: "أحدث المقالات"
 - id: readMore
   translation: "اقرأ المزيد"
+- id: noPosts
+  translation: "لا توجد مقالات بعد. ترقب المزيد قريباً!"
+- id: publishedOn
+  translation: "نُشر في"
+- id: by
+  translation: "بواسطة"
+- id: tableOfContents
+  translation: "جدول المحتويات"
+- id: share
+  translation: "شارك هذا المقال"
+- id: relatedPosts
+  translation: "مقالات ذات صلة"
+- id: backToBlog
+  translation: "العودة إلى المدونة"
+- id: faq
+  translation: "أسئلة شائعة"
+- id: references
+  translation: "المراجع"
+- id: tldr
+  translation: "ملخص"

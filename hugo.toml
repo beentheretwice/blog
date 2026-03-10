@@ -1,6 +1,6 @@
 baseURL = 'https://waqtsalat.github.io/blog/'
 languageCode = 'en-us'
-title = 'وقت الصلاة Blog'
+title = 'WaqtSalat Blog'
 
 # Enable Emoji rendering
 enableEmoji = true
@@ -32,12 +32,14 @@ defaultContentLanguageInSubdir = true
     languageName = "English"
     weight = 1
     title = "WaqtSalat Blog"
+    contentDir = "content/en"
     
   [languages.fr]
     languageCode = "fr"
     languageName = "Français"
     weight = 2
     title = "Blog WaqtSalat"
+    contentDir = "content/fr"
     
   [languages.ar]
     languageCode = "ar"
@@ -45,6 +47,7 @@ defaultContentLanguageInSubdir = true
     languageDirection = "rtl"
     weight = 3
     title = "مدونة وقت الصلاة"
+    contentDir = "content/ar"
 
 # Menu
 [menus]

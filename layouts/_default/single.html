@@ -1,32 +1,169 @@
 {{ define "main" }}
 <article class="post">
+  <!-- TL;DR Box -->
+  {{ with .Params.tldr }}
+  <div class="tldr-box">
+    <h4>TL;DR</h4>
+    <p>{{ . | markdownify }}</p>
+  </div>
+  {{ end }}
+  
+  <!-- Cover Image -->
+  {{ with .Params.cover }}
+  <div class="post-cover">
+    <img src="{{ . | relURL }}" alt="{{ $.Title }} - Cover Image" loading="eager">
+  </div>
+  {{ end }}
+  
+  <!-- Post Title & Meta -->
   <h1>{{ .Title }}</h1>
   <div class="meta">
-    <time>{{ .Date | time.Format ":date_long" }}</time>
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ i18n "publishedOn" | default "Published on" }} {{ .Date | time.Format ":date_long" }}</time>
+    {{ with .Params.author }}
+      <span class="author">{{ i18n "by" | default "by" }} {{ . }}</span>
+    {{ end }}
   </div>
-  <div class="content">{{ .Content }}</div>
+  
+  <!-- Main Content -->
+  <div class="content">
+    {{ .Content }}
+    
+    <!-- Table of Contents for long posts -->
+    {{ if ge .WordCount 500 }}
+      <details class="toc">
+        <summary>{{ i18n "tableOfContents" | default "Table of Contents" }}</summary>
+        {{ .TableOfContents }}
+      </details>
+    {{ end }}
+  </div>
+  
+  <!-- FAQ Section -->
+  {{ with .Params.faq }}
+    <section class="faq-section">
+      <h2>{{ i18n "faq" | default "Frequently Asked Questions" }}</h2>
+      <div class="faq-list">
+        {{ range $index, $elem := . }}
+          <details class="faq-item" {{ if eq $index 0 }}open{{ end }}>
+            <summary class="faq-question">{{ .question }}</summary>
+            <div class="faq-answer">{{ .answer | markdownify }}</div>
+          </details>
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+  
+  <!-- Citations/References -->
+  {{ with .Params.references }}
+    <section class="references-section">
+      <h2>{{ i18n "references" | default "References" }}</h2>
+      <ul class="references-list">
+        {{ range . }}
+          <li><a href="{{ .url }}" target="_blank" rel="nofollow">{{ .title }}</a></li>
+        {{ end }}
+      </ul>
+    </section>
+  {{ end }}
+  
+  <!-- Related Posts -->
+  {{ $allPosts := where .Site.RegularPages "Type" "posts" }}
+  {{ $related := where $allPosts "Date" "gt" .Date | first 3 }}
+  {{ if $related }}
+    <section class="related-posts">
+      <h2>{{ i18n "relatedPosts" | default "Related Posts" }}</h2>
+      <div class="related-grid">
+        {{ range $related }}
+          <article class="related-card">
+            {{ with .Params.image }}
+              <img src="{{ . | relURL }}" alt="{{ $.Title }}">
+            {{ end }}
+            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+            <time>{{ .Date | time.Format ":date_medium" }}</time>
+          </article>
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+  
+  <!-- Back to Blog -->
+  <div class="back-link">
+    <a href="{{ "posts" | relURL }}">{{ i18n "backToBlog" | default "Back to Blog" }} ←</a>
+  </div>
 </article>
 {{ end }}
 
 {{ define "jsonld" }}
+{{/* Main Article Schema */}}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
+  "@type": "Article",
   "headline": "{{ .Title }}",
-  "datePublished": "{{ .Date.Format "2006-01-02" }}",
-  "dateModified": "{{ .Lastmod.Format "2006-01-02" }}",
+  "image": "{{ with .Params.cover }}{{ . | absURL }}{{ else }}{{ end }}",
+  "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+  "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
   "description": "{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}",
   "inLanguage": "{{ .Site.Language.Lang }}",
+  "wordCount": {{ .WordCount }},
+  "keywords": "{{ delimit .Params.tags ", " }}",
   "author": {
     "@type": "Organization",
-    "name": "WaqtSalat"
+    "name": "WaqtSalat",
+    "url": "https://waqtsalat.github.io/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "WaqtSalat",
-    "url": "https://waqtsalat.github.io/waqtsalat/"
+    "logo": "https://waqtsalat.github.io/waqtsalat/icon-192.png",
+    "url": "https://waqtsalat.github.io/"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ .Permalink }}"
   }
 }
 </script>
+
+{{/* FAQ Page Schema (if FAQ section exists) */}}
+{{ with .Params.faq }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {{ range $index, $elem := . }}
+    {
+      "@type": "Question",
+      "position": {{ add $index 1 }},
+      "name": "{{ $elem.question }}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ $elem.answer | plainify }}"
+      }
+    }{{ if lt $index (sub (len .) 1) }}{{ end }}
+    {{ end }}
+  ]
+}
+</script>
+{{ end }}
+
+{{/* HowTo Schema (if applicable) */}}
+{{ with .Params.howTo }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "{{ .Title }}",
+  "description": "{{ .Description }}",
+  "step": [
+    {{ range $index, $elem := . }}
+    {
+      "@type": "HowToStep",
+      "position": {{ add $index 1 }},
+      "text": "{{ $elem.text | plainify }}"
+    }{{ if lt $index (sub (len .) 1) }}{{ end }}
+    {{ end }}
+  ]
+}
+</script>
+{{ end }}
 {{ end }}
