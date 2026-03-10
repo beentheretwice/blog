@@ -1,4 +1,3 @@
 ---
 title: "WaqtSalat Blog"
 ---
-{{< site >}}
