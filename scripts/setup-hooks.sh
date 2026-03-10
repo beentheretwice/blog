@@ -1,5 +1,5 @@
 #!/bin/bash
-# Pre-commit: Generate navigation, build Hugo, check all links
+# Pre-commit: Generate navigation, check images, build Hugo, check links
 # Skip with: git commit --no-verify
 
 set -e
@@ -11,5 +11,9 @@ echo "1. Generating navigation files..."
 "$BLOG_DIR/scripts/generate-nav.sh" 2>&1 | tail -1
 
 echo ""
-echo "2. Running link checker..."
+echo "2. Checking image URLs..."
+"$BLOG_DIR/scripts/check-images.sh"
+
+echo ""
+echo "3. Running link checker..."
 "$BLOG_DIR/scripts/check-links.sh"
