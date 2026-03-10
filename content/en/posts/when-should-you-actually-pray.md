@@ -5,6 +5,10 @@ draft: false
 description: "Understanding when to pray after the athan, flexibility in prayer times, and why some people wait before praying."
 tags: ["prayer-times", "islam", "flexibility", "guidance"]
 translationKey: "prayer-time-windows"
+cover: "/images/prayer-window.png"
+image: "/images/prayer-window.png"
+tldr: "You can pray anytime between the athan and the next prayer. Each prayer has a full time window, not a single moment."
+author: "WaqtSalat Team"
 ---
 
 The athan rings. Do you pray immediately or wait? This question comes up often, especially when different people in the same household pray at different times.
