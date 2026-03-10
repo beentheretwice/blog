@@ -60,9 +60,17 @@ jobs:
 
           echo "✓ All internal links valid"
 
-      - name: Stop local server
-        if: always()
+      - name: Verify SEO files
         run: |
-          if [ -f /tmp/server.pid ]; then
-            kill $(cat /tmp/server.pid) 2>/dev/null || true
-          fi
+          # Check robots.txt
+          test -f static/robots.txt || (echo "::error::robots.txt missing" && exit 1)
+          grep -q "Sitemap:" static/robots.txt || (echo "::error::robots.txt missing sitemap" && exit 1)
+          
+          # Check navigation.json
+          test -f static/navigation.json || (echo "::error::navigation.json missing" && exit 1)
+          python3 -c "import json; json.load(open('static/navigation.json'))" || (echo "::error::navigation.json invalid JSON" && exit 1)
+          
+          # Check LLM.txt
+          test -f static/llm.txt || (echo "::error::llm.txt missing" && exit 1)
+          
+          echo "✓ All SEO files present and valid"

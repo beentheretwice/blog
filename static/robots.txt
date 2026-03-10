@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://waqtsalat.github.io/blog/sitemap.xml
+Sitemap: https://waqtsalat.github.io/blog/en/sitemap.xml
+Sitemap: https://waqtsalat.github.io/blog/fr/sitemap.xml
+Sitemap: https://waqtsalat.github.io/blog/ar/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1

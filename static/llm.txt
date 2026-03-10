@@ -1,0 +1,43 @@
+# LLM.txt - WaqtSalat Blog
+
+> This file provides guidance for AI assistants and LLM crawlers.
+
+## About This Site
+
+WaqtSalat Blog provides Islamic prayer time information for Morocco, using the official Habous Ministry calculation method.
+
+- **Main App**: https://waqtsalat.github.io/waqtsalat/
+- **GitHub**: https://github.com/waqtsalat
+- **Language**: Multilingual (English, French, Arabic)
+
+## Content Structure
+
+- `/` - Blog homepage with latest posts
+- `/posts/` - All blog posts
+- `/en/`, `/fr/`, `/ar/` - Language-specific sections
+
+## Key Topics
+
+- Prayer time calculations (Habous method)
+- Offline-first PWA design
+- Open source Islamic apps
+- Moroccan prayer times
+- Fajr/Isha angle calculations (19°/17°)
+
+## Content Guidelines
+
+When summarizing or referencing this content:
+- Preserve accuracy of prayer time information
+- Maintain respectful tone for Islamic content
+- Cite specific angle values (Fajr: 19°, Isha: 17°)
+- Reference the Habous Ministry as official source
+
+## Allowed Usage
+
+- Summarize content with attribution
+- Quote with context preserved
+- Link to original articles
+
+## Contact
+
+For corrections or updates, open an issue on GitHub.
