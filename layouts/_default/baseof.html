@@ -8,9 +8,9 @@
   
   <link rel="canonical" href="{{ .Permalink }}">
   {{ range .Site.Languages }}
-  <link rel="alternate" hreflang="{{ .Lang }}" href="/{{ .Lang }}/">
+  <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Lang | relLangURL }}">
   {{ end }}
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
   
   {{ block "jsonld" . }}{{ end }}
 </head>

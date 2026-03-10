@@ -3,7 +3,7 @@
     <a href="{{ "/" | relLangURL }}" class="brand">{{ .Site.Title }}</a>
     <div class="lang-switch">
       {{ range .Site.Languages }}
-      <a href="/{{ .Lang }}/">{{ .LanguageName }}</a>
+      <a href="{{ .Lang | relLangURL }}">{{ .LanguageName }}</a>
       {{ end }}
     </div>
   </nav>
