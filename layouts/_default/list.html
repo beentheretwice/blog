@@ -1,10 +1,16 @@
 {{ define "main" }}
 <h1>{{ .Title }}</h1>
-{{ range .Pages }}
-<article class="post-card">
-  <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-  <time>{{ .Date | time.Format ":date_medium" }}</time>
-  <p>{{ .Summary | plainify | truncate 160 }}</p>
-</article>
+
+{{ $posts := .Pages }}
+{{ if $posts }}
+  {{ range $posts }}
+  <article class="post-card">
+    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+    <time>{{ .Date | time.Format ":date_medium" }}</time>
+    {{ with .Description }}<p>{{ . }}</p>{{ end }}
+  </article>
+  {{ end }}
+{{ else }}
+<p>No posts yet.</p>
 {{ end }}
 {{ end }}

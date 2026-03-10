@@ -1,11 +1,23 @@
 {{ define "main" }}
-<h1>{{ .Site.Title }}</h1>
-<p>{{ .Site.Params.description }}</p>
-<h2>Latest Posts</h2>
-{{ range first 5 (where .Site.RegularPages "Section" "posts") }}
-<article class="post-card">
-  <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-  <time>{{ .Date | time.Format ":date_medium" }}</time>
-</article>
-{{ end }}
+<div class="hero">
+  <h1>{{ .Site.Title }}</h1>
+  <p>{{ .Site.Params.description }}</p>
+</div>
+
+<section class="posts-section">
+  <h2>Latest Posts</h2>
+  
+  {{ $posts := where .Site.RegularPages "Section" "posts" }}
+  {{ if $posts }}
+    {{ range first 5 $posts }}
+    <article class="post-card">
+      <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+      <time>{{ .Date | time.Format ":date_medium" }}</time>
+      {{ with .Description }}<p>{{ . }}</p>{{ end }}
+    </article>
+    {{ end }}
+  {{ else }}
+    <p>No posts yet. Check back soon!</p>
+  {{ end }}
+</section>
 {{ end }}
