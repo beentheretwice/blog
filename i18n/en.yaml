@@ -26,3 +26,11 @@
   translation: "References"
 - id: tldr
   translation: "TL;DR"
+- id: ctaTitle
+  translation: "Try WaqtSalat Today"
+- id: ctaText
+  translation: "Experience accurate prayer times for Morocco with complete privacy. No ads, no tracking, works offline."
+- id: ctaPrimary
+  translation: "Get Prayer Times"
+- id: ctaSecondary
+  translation: "View Source Code"

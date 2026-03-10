@@ -1,13 +1,13 @@
 <div class="cta-block">
   <div class="cta-content">
-    <h3>{{ .title | default "Ready to Get Started?" }}</h3>
-    <p class="cta-text">{{ .text | default "Experience accurate prayer times with complete privacy." }}</p>
+    <h3>{{ i18n "ctaTitle" | default "Try WaqtSalat Today" }}</h3>
+    <p class="cta-text">{{ i18n "ctaText" | default "Experience accurate prayer times with complete privacy." }}</p>
     <div class="cta-buttons">
       {{ with .primaryUrl }}
-      <a href="{{ . }}" class="btn btn-primary">{{ $.primaryText | default "Try WaqtSalat" }}</a>
+      <a href="{{ . }}" class="btn btn-primary">{{ i18n "ctaPrimary" | default "Get Prayer Times" }}</a>
       {{ end }}
       {{ with .secondaryUrl }}
-      <a href="{{ . }}" class="btn btn-secondary">{{ $.secondaryText | default "Learn More" }}</a>
+      <a href="{{ . }}" class="btn btn-secondary">{{ i18n "ctaSecondary" | default "View Source Code" }}</a>
       {{ end }}
     </div>
   </div>

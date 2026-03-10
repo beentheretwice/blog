@@ -26,3 +26,11 @@
   translation: "Références"
 - id: tldr
   translation: "En résumé"
+- id: ctaTitle
+  translation: "Essayez WaqtSalat Aujourd'hui"
+- id: ctaText
+  translation: "Découvrez des heures de prière précises pour le Maroc avec une confidentialité totale. Sans publicité, sans suivi, fonctionne hors ligne."
+- id: ctaPrimary
+  translation: "Obtenir les Heures de Prière"
+- id: ctaSecondary
+  translation: "Voir le Code Source"

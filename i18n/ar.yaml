@@ -26,3 +26,11 @@
   translation: "المراجع"
 - id: tldr
   translation: "ملخص"
+- id: ctaTitle
+  translation: "جرب وقت الصلاة اليوم"
+- id: ctaText
+  translation: "اختبر أوقات صلاة دقيقة للمغرب مع خصوصية كاملة. بدون إعلانات، بدون تتبع، يعمل دون اتصال."
+- id: ctaPrimary
+  translation: "احصل على أوقات الصلاة"
+- id: ctaSecondary
+  translation: "عرض الكود المصدري"
