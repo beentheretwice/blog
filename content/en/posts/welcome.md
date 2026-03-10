@@ -75,6 +75,10 @@ Follow our blog for regular updates on Islamic content, prayer time accuracy, an
 
 ---
 
+#PrayerTimes #Morocco #IslamicApps #OfflineFirst #OpenSource #Habous #PWA
+
+---
+
 ## Frequently Asked Questions
 
 ### Is WaqtSalat free?
