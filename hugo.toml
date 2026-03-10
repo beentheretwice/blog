@@ -1,7 +1,6 @@
 baseURL = 'https://waqtsalat.github.io/blog/'
 languageCode = 'en-us'
 title = 'وقت الصلاة Blog'
-theme = ''
 
 # Enable Emoji rendering
 enableEmoji = true
