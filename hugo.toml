@@ -1,0 +1,86 @@
+baseURL = 'https://waqtsalat.github.io/blog/'
+languageCode = 'en-us'
+title = 'وقت الصلاة Blog'
+theme = ''
+
+# Enable Emoji rendering
+enableEmoji = true
+
+# Summary length
+summaryLength = 70
+
+# Pagination
+paginate = 10
+
+# Enable RSS
+rssLimit = 20
+
+[params]
+  description = "Prayer times, Islamic content, and updates from WaqtSalat"
+  author = "WaqtSalat Team"
+  github = "https://github.com/waqtsalat"
+  # SEO
+  seo = true
+  jsonLD = true
+
+# Multilingual configuration
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
+
+[languages]
+  [languages.en]
+    languageCode = "en"
+    languageName = "English"
+    weight = 1
+    title = "WaqtSalat Blog"
+    
+  [languages.fr]
+    languageCode = "fr"
+    languageName = "Français"
+    weight = 2
+    title = "Blog WaqtSalat"
+    
+  [languages.ar]
+    languageCode = "ar"
+    languageName = "العربية"
+    languageDirection = "rtl"
+    weight = 3
+    title = "مدونة وقت الصلاة"
+
+# Menu
+[menus]
+  [[menus.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+
+# Taxonomies
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+# Outputs
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+
+# Markup
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "monokai"
+    lineNos = false
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+
+# Minify
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false

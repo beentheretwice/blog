@@ -1,0 +1,19 @@
+# Blog TODO - gitignored
+TODO.md
+
+# Hugo
+/public/
+/resources/_gen/
+/.hugo_build.lock
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
+
+# Node (if using npm tools)
+node_modules/

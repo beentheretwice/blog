@@ -1,0 +1,20 @@
+{{ define "main" }}
+<article class="post">
+  <h1>{{ .Title }}</h1>
+  <div class="meta">{{ .Date | time.Format ":date_long" }}</div>
+  <div class="content">{{ .Content }}</div>
+</article>
+{{ end }}
+
+{{ define "jsonld" }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ .Title }}",
+  "datePublished": "{{ .Date.Format "2006-01-02" }}",
+  "description": "{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}",
+  "inLanguage": "{{ .Site.Language.Lang }}"
+}
+</script>
+{{ end }}

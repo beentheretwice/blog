@@ -1,0 +1,6 @@
+- id: home
+  translation: "Home"
+- id: posts
+  translation: "Posts"
+- id: readMore
+  translation: "Read more"
