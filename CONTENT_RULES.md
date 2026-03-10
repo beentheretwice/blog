@@ -146,3 +146,13 @@ Before publishing, verify:
 - [ ] Meta description under 160 chars
 - [ ] Link checker passes (0 errors)
 - [ ] Post exists in all 3 languages (or translationKey set)
+
+## Image URLs
+
+- **Format:** `/images/filename.png` (with leading slash)
+- **Hugo processes:** Automatically adds `/blog/` prefix via `relURL`
+- **Generated:** `/blog/images/filename.png`
+- **Markdown:** Use same format: `![alt](/images/filename.png)`
+- **No absolute URLs** in markdown or front matter
+
+This ensures correct paths in both local development (`http://localhost:13132/blog/`) and production (`https://waqtsalat.github.io/blog/`).
