@@ -5,9 +5,14 @@ draft: false
 description: "Understanding the official prayer time calculation method used in Morocco, based on the Habous Ministry's angle settings for Fajr and Isha."
 tags: ["prayer-times", "morocco", "habous-method", "calculation"]
 translationKey: "habous-method"
+cover: "/images/habous-angles.png"
+image: "/images/habous-angles.png"
+tldr: "Morocco uses the official Habous method for prayer times with Fajr at 19° and Isha at 17° angles. This matches local mosque times and differs from other calculation methods."
 ---
 
 Different prayer apps show different times. This creates confusion about when to actually pray. Morocco uses a specific calculation method defined by the Habous Ministry.
+
+![Islamic prayer time calculation showing sun angles](/images/habous-angles.png "Diagram showing how Morocco calculates Fajr and Isha using 19° and 17° sun angles")
 
 ## What Is the Habous Method?
 
@@ -18,6 +23,8 @@ The Habous method is Morocco's official prayer time calculation. It uses specifi
 - **Isha**: 17° (sun below horizon)
 
 These angles are more conservative than other methods, resulting in slightly earlier Fajr and later Isha times.
+
+![Six daily prayer times displayed on Moroccan mosque board](/images/six-prayers-morocco.png "Traditional schedule showing Fajr, Chourouk, Dhuhr, Asr, Maghrib, and Isha times")
 
 ## Why Different Apps Show Different Times
 
@@ -58,3 +65,7 @@ This matches what you hear from local mosques.
 Sometimes your local mosque may differ slightly. WaqtSalat lets you adjust each prayer by ±15 minutes to match your community.
 
 [Try WaqtSalat](https://waqtsalat.github.io/waqtsalat/) and see accurate prayer times for Morocco.
+
+---
+
+#PrayerTimes #Morocco #HabousMethod #IslamicApps #PrayerCalculation

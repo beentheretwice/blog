@@ -5,9 +5,15 @@ draft: false
 description: "Why offline prayer apps are essential in Morocco, how WaqtSalat works without internet, and the benefits of offline-first design."
 tags: ["offline", "prayer-app", "morocco", "technology"]
 translationKey: "offline-prayer-times"
+cover: "/images/offline-first-morocco.png"
+image: "/images/offline-first-morocco.png"
+tldr: "WaqtSalat works completely offline after initial setup. No internet needed to check prayer times. Perfect for areas with poor connectivity."
+author: "WaqtSalat Team"
 ---
 
 Your phone shows no signal. It's time for Maghrib. Do you know when to pray?
+
+![Offline first app working in Moroccan countryside](/images/offline-first-morocco.png "Prayer times app working without internet connection in rural Morocco")
 
 ## The Connectivity Reality
 
@@ -31,6 +37,8 @@ Offline-first design means the app works without internet by default:
 - No server calls required for core functionality
 
 WaqtSalat calculates prayer times using mathematical formulas and your location. No internet needed after the initial setup.
+
+![Progressive web app installation on smartphone](/images/pwa-install.png "Installing WaqtSalat PWA on home screen for offline access")
 
 ## How WaqtSalat Works Offline
 
@@ -91,3 +99,7 @@ WaqtSalat is a PWA (Progressive Web App):
 - Takes minimal storage space
 
 [Try WaqtSalat](https://waqtsalat.github.io/waqtsalat/) - works online or offline, always accurate.
+
+---
+
+#OfflineFirst #PWA #PrayerTimes #Morocco #NoInternet

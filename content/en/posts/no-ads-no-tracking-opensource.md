@@ -5,9 +5,15 @@ draft: false
 description: "Why WaqtSalat has no ads, no tracking, and is open source. Privacy, respect for worship, and community trust matter."
 tags: ["privacy", "open-source", "no-ads", "trust"]
 translationKey: "no-ads-tracking-opensource"
+cover: "/images/privacy-shield.png"
+image: "/images/privacy-shield.png"
+tldr: "WaqtSalat has no ads, no tracking, and is fully open source. Your prayer habits stay private. Your worship stays distraction-free."
+author: "WaqtSalat Team"
 ---
 
 Your prayer app shows an ad. You see a notification asking for data collection. This shouldn't be normal.
+
+![Privacy shield protecting user data from tracking](/images/privacy-shield.png "Privacy focused design with no ads, no tracking, and complete data protection")
 
 ## The Problem With Islamic Apps
 
@@ -63,6 +69,8 @@ Your location and prayer habits stay on your phone. We never see them.
 ### Open Source
 
 WaqtSalat's code is fully public on GitHub.
+
+![Open source community collaborating on GitHub](/images/open-source-community.png "Diverse developers contributing to transparent, privacy-focused Islamic app")
 
 **Why this matters:**
 
@@ -132,3 +140,7 @@ When you use WaqtSalat, you get:
 Your prayer times should support your faith. Not exploit it.
 
 [Try WaqtSalat](https://waqtsalat.github.io/waqtsalat/) and experience prayer times with respect for your privacy.
+
+---
+
+#Privacy #OpenSource #NoAds #IslamicApps #DataProtection

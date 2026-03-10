@@ -5,9 +5,15 @@ draft: false
 description: "Comprendre la méthode officielle de calcul des heures de prière au Maroc, basée sur les réglages d'angle du Ministère des Habous."
 tags: ["heures-prière", "maroc", "méthode-habous", "calcul"]
 translationKey: "habous-method"
+cover: "/images/habous-angles.png"
+image: "/images/habous-angles.png"
+tldr: "Le Maroc utilise la méthode officielle Habous pour les heures de prière avec Fajr à 19° et Isha à 17°. Cela correspond aux horaires des mosquées locales."
+author: "Équipe WaqtSalat"
 ---
 
 Différentes applications de prière affichent des horaires différents. Cela crée une confusion sur le moment exact de prier. Le Maroc utilise une méthode de calcul spécifique définie par le Ministère des Habous.
+
+![Calcul des heures de prière islamique montrant les angles solaires](/images/habous-angles.png "Diagramme montrant comment le Maroc calcule Fajr et Isha en utilisant des angles solaires de 19° et 17°")
 
 ## Qu'est-ce que la méthode Habous ?
 
@@ -18,6 +24,8 @@ La méthode Habous est le calcul officiel des heures de prière au Maroc. Elle u
 - **Isha** : 17° (soleil sous l'horizon)
 
 Ces angles sont plus conservateurs que d'autres méthodes, donnant un Fajr légèrement plus tôt et un Isha plus tardif.
+
+![Six heures de prière quotidiennes affichées sur un tableau de mosquée marocaine](/images/six-prayers-morocco.png "Horaire traditionnel montrant les heures de Fajr, Chourouk, Dhuhr, Asr, Maghrib et Isha")
 
 ## Pourquoi les applications affichent des horaires différents
 
@@ -58,3 +66,7 @@ Cela correspond à ce que vous entendez des mosquées locales.
 Parfois, votre mosquée locale peut différer légèrement. WaqtSalat vous permet d'ajuster chaque prière de ±15 minutes pour correspondre à votre communauté.
 
 [Essayez WaqtSalat](https://waqtsalat.github.io/waqtsalat/) et voyez les heures de prière précises pour le Maroc.
+
+---
+
+#HeuresDePrière #Maroc #MéthodeHabous #ApplicationsIslamiques #CalculPrière
