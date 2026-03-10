@@ -217,15 +217,15 @@ footer a {
     flex-direction: column;
     text-align: center;
   }
-  
+
   main {
     padding: 1rem;
   }
-  
+
   .hero {
     padding: 2rem 1rem;
   }
-  
+
   .hero h1 {
     font-size: 1.5rem;
   }
