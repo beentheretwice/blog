@@ -6,7 +6,7 @@
 
 <section class="posts-section">
   <h2>Latest Posts</h2>
-  
+
   {{ $posts := where .Site.RegularPages "Section" "posts" }}
   {{ if $posts }}
     {{ range first 5 $posts }}

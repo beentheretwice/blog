@@ -11,13 +11,13 @@ Votre application de prière affiche une publicité. Vous voyez une notification
 
 ## Le problème avec les applications islamiques
 
-De nombreuses applications de prière gagnent de l'argent de manières nuisent à votre culte :
+De nombreuses applications de prière gagnent de l'argent de manières qui nuisent à votre culte :
 
 **Publicités :**
 - Bannières publicitaires distrayantes pendant la prière
 - Pop-ups entre les heures de prière
 - Contenu sponsorisé mêlé aux informations islamiques
-- Profit tiré de votre pratique religieuse
+- Tirer profit de votre pratique religieuse
 
 **Suivi :**
 - Suivi GPS chaque fois que vous ouvrez l'application
@@ -33,14 +33,14 @@ WaqtSalat prend un chemin différent. Voici ce que nous croyons :
 
 ### Pas de publicités
 
-Jamais. Point.
+Jamais. Point final.
 
 Pourquoi ? Parce que les publicités dans une application de prière sont :
-- Manque de respect pour le culte
+- Un manque de respect pour le culte
 - Distrayantes pendant les moments sacrés
-- Exploitation de la pratique religieuse pour le profit
+- Une exploitation de la pratique religieuse pour le profit
 
-Votre relation avec Dieu mérite un espace sans interruptions commerciales.
+Votre relation avec Dieu mérite un espace libre d'interruptions commerciales.
 
 ### Pas de suivi
 
@@ -54,9 +54,9 @@ WaqtSalat ne collecte, ne stocke et ne transmet aucune donnée.
 - Pas de réseaux publicitaires
 
 **Ce que nous faisons :**
-- Calcule les heures de prière sur votre appareil
-- Stocke votre préférence de ville localement
-- Garde tout privé
+- Calculer les heures de prière sur votre appareil
+- Stocker votre préférence de ville localement
+- Garder tout privé
 
 Votre localisation et vos habitudes de prière restent sur votre téléphone. Nous ne les voyons jamais.
 
@@ -69,17 +69,17 @@ Le code de WaqtSalat est entièrement public sur GitHub.
 **Transparence :**
 - N'importe qui peut vérifier ce que fait le code
 - Pas de fonctionnalités cachées ou de collecte de données
-- Les chercheurs en sécurité peuvent audit la base de code
+- Les chercheurs en sécurité peuvent auditer la base de code
 
 **Communauté :**
 - Contributeurs du monde entier
-- Correctifs de bugs de la communauté
+- Corrections de bugs de la communauté
 - Support multilingue de volontaires
 - Amélioration continue par les commentaires
 
 **Confiance :**
-- Vous n'avez pas à prendre notre mot pour elle
-- Revue le code vous-même
+- Vous n'avez pas à nous croire sur parole
+- Examinez le code vous-même
 - Compilez depuis la source si vous voulez
 - Vérifiez que nos affirmations de confidentialité sont réelles
 
@@ -91,27 +91,27 @@ Le prophète (paix sur lui) a dit : "Évitez le soupçon autant que possible."
 
 Utiliser une application qui suit vos prières crée un soupçon inutile sur vos intentions. Votre culte devrait être entre vous et Dieu.
 
-Les données sur vos heures de prière, votre fréquence et votre localisation sont personnelles. Elles devraient rester ainsi.
+Les données sur vos heures de prière, fréquence et localisation sont personnelles. Elles devraient le rester.
 
 ## La réalité commerciale
 
-Les applications avec publicités et suivi ont des incitatifs financiers :
+Les applications avec publicités et suivi ont des incitations financières :
 
 - **Publicités** = Besoin de plus d'utilisateurs pour plus de revenus
-- **Suivi** = Vente de données aux annonceurs ou aux sociétés d'analyse
+- **Suivi** = Vendre des données aux annonceurs ou sociétés d'analyse
 
-WaqtSalat n'a aucun incitatif financier à comprometre votre confidentialité :
+WaqtSalat n'a aucune incitation financière à compromettre votre confidentialité :
 
 - Pas de revenus des publicités
-- Pas de revenus de vente de données
+- Pas de revenus de la vente de données
 - Projet purement bénévole
 - Servir la communauté, pas l'exploiter
 
-Cet alignement compte. Nous bénéficions quand l'application vous sert bien. Pas quand elle exploite vos habitudes de prière.
+Cet alignement compte. Nous bénéficions quand l'application vous sert bien. Pas quand nous exploitons vos habitudes de prière.
 
 ## Comment vérifier
 
-Ne prenez pas notre mot pour elle. Vérifiez vous-même :
+Ne nous croyez pas sur parole. Vérifiez vous-même :
 
 1. **Vérifiez le code source** : [github.com/waqtsalat/waqtsalat](https://github.com/waqtsalat/waqtsalat)
 2. **Inspection réseau** : Pas d'appels externes dans les outils de développement navigateur
@@ -122,13 +122,13 @@ Vous pouvez confirmer ce que nous affirmons.
 
 ## Ce que cela signifie pour vous
 
-Lorsque vous utilisez WaqtSalat, vous obtenez :
+Quand vous utilisez WaqtSalat, vous obtenez :
 
 - **Culte sans distraction** : Pas de publicités pendant les moments sacrés
 - **Confidentialité complète** : Vos données restent les vôtres
 - **Transparence** : Vérifiez tout dans le code ouvert
 - **Confiance** : Pas d'agenda caché, juste un service
 
-Vos heures de prière devraient soutenir votre foi. Pas les exploiter.
+Vos heures de prière devraient soutenir votre foi. Pas l'exploiter.
 
 [Essayez WaqtSalat](https://waqtsalat.github.io/waqtsalat/) et vivez les heures de prière avec respect pour votre confidentialité.
