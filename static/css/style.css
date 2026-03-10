@@ -120,15 +120,17 @@ header nav .lang-switch {
   background: rgba(255,255,255,0.1);
   padding: 4px;
   border-radius: var(--radius-md);
+  align-items: center;
 }
 
 header nav .lang-switch a {
   color: rgba(255,255,255,0.8);
   font-size: 0.875rem;
-  padding: var(--space-xs) var(--space-md);
+  padding: var(--space-xs) var(--space-sm);
   border-radius: var(--radius-sm);
   transition: all 0.2s ease;
   font-weight: 500;
+  white-space: nowrap;
 }
 
 header nav .lang-switch a:hover {
