@@ -1052,3 +1052,33 @@ footer a:hover {
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================
+   CORE WEB VITALS - CLS PREVENTION
+   ============================================ */
+/* Reserve space for images to prevent layout shift */
+.post-card-image {
+  aspect-ratio: 16 / 9;
+  background: var(--primary-bg);
+}
+
+.post-card-image img {
+  aspect-ratio: 16 / 9;
+}
+
+.post-cover {
+  aspect-ratio: 16 / 9;
+}
+
+.post-cover img {
+  aspect-ratio: 16 / 9;
+}
+
+.related-card img {
+  aspect-ratio: 16 / 9;
+}
+
+/* Content images maintain their natural aspect ratio */
+article.post .content img {
+  aspect-ratio: auto;
+}

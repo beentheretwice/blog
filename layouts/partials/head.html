@@ -21,6 +21,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+{{/* Preload critical images for LCP optimization */}}
+{{ if .IsHome }}
+{{ with .Site.RegularPages }}
+{{ range first 1 . }}
+{{ with .Params.image }}
+<link rel="preload" as="image" href="{{ strings.TrimPrefix "/" . | relURL }}" fetchpriority="high">
+{{ end }}
+{{ end }}
+{{ end }}
+{{ end }}
+
 {{/* Stylesheet */}}
 <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
 

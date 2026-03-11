@@ -34,7 +34,15 @@
     {{ range . | first 3 }}
     <a href="{{ .Permalink }}" class="related-card">
       {{ with .Params.image }}
-      <img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="{{ $.Title }}" loading="lazy" decoding="async">
+      <img 
+        src="{{ strings.TrimPrefix "/" . | relURL }}" 
+        alt="{{ $.Title }}" 
+        loading="lazy" 
+        decoding="async"
+        width="400"
+        height="225"
+        style="width: 100%; height: auto; object-fit: cover;"
+      >
       {{ else }}
       <div style="width:100%;height:140px;background:var(--primary-bg);"></div>
       {{ end }}
