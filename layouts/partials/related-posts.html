@@ -1,0 +1,47 @@
+{{/* Related Posts Partial
+  Usage: {{ partial "related-posts.html" . }}
+  
+  Shows related posts based on tags and categories
+  Falls back to recent posts if no tags match
+*/}}
+{{ $related := slice }}
+{{ $maxRelated := 5 }}
+
+{{/* Try to get related posts by tags first */}}
+{{ if .Params.tags }}
+  {{ $related = .Site.RegularPages.Related . | first $maxRelated }}
+{{ end }}
+
+{{/* Fallback: Get recent posts from same section if no tag matches */}}
+{{ if lt (len $related) 3 }}
+  {{ $section := .Section }}
+  {{ $recent := where .Site.RegularPages "Section" $section | first $maxRelated }}
+  {{ $related = $recent }}
+{{ end }}
+
+{{/* Final fallback: Just get recent posts */}}
+{{ if lt (len $related) 3 }}
+  {{ $related = .Site.RegularPages | first $maxRelated }}
+{{ end }}
+
+{{/* Filter out current page */}}
+{{ $related = where $related "Permalink" "ne" .Permalink }}
+
+{{ with $related }}
+<section class="related-posts">
+  <h2>{{ i18n "relatedPosts" | default "Related Posts" }}</h2>
+  <div class="related-grid">
+    {{ range . | first 3 }}
+    <a href="{{ .Permalink }}" class="related-card">
+      {{ with .Params.image }}
+      <img src="{{ . | relURL }}" alt="{{ $.Title }}" loading="lazy" decoding="async">
+      {{ else }}
+      <div style="width:100%;height:140px;background:var(--primary-bg);"></div>
+      {{ end }}
+      <h3>{{ .Title }}</h3>
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_medium" }}</time>
+    </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

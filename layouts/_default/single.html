@@ -11,7 +11,7 @@
   <!-- Cover Image -->
   {{ with .Params.cover }}
   <div class="post-cover">
-    <img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="{{ $.Title }} - Cover Image" loading="eager">
+    <img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="{{ $.Title }} - Cover Image" loading="eager" decoding="async">
   </div>
   {{ end }}
   
@@ -64,29 +64,15 @@
     </section>
   {{ end }}
   
-  <!-- Related Posts -->
-  {{ $allPosts := where .Site.RegularPages "Type" "posts" }}
-  {{ $related := where $allPosts "Date" "gt" .Date | first 3 }}
-  {{ if $related }}
-    <section class="related-posts">
-      <h2>{{ i18n "relatedPosts" | default "Related Posts" }}</h2>
-      <div class="related-grid">
-        {{ range $related }}
-          <article class="related-card">
-            {{ with .Params.image }}
-              <img src="{{ . | relURL }}" alt="{{ $.Title }}">
-            {{ end }}
-            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-            <time>{{ .Date | time.Format ":date_medium" }}</time>
-          </article>
-        {{ end }}
-      </div>
-    </section>
-  {{ end }}
+  <!-- Social Share Buttons -->
+  {{ partial "share-buttons.html" . }}
+  
+  <!-- Related Posts (Tag-based) -->
+  {{ partial "related-posts.html" . }}
   
   <!-- Back to Blog -->
   <div class="back-link">
-    <a href="{{ "posts" | relURL }}">{{ i18n "backToBlog" | default "Back to Blog" }} ←</a>
+    <a href="{{ "posts" | relURL }}">← {{ i18n "backToBlog" | default "Back to Blog" }}</a>
   </div>
 
   <!-- CTA Block -->

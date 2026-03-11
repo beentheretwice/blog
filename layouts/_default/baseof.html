@@ -1,18 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Lang }}" dir="{{ .Site.Language.LanguageDirection | default "ltr" }}">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
-  
-  <link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
-  <link rel="canonical" href="{{ .Permalink }}">
-  {{ range .Site.Languages }}
-  <link rel="alternate" hreflang="{{ .Lang }}" href="{{ relURL (printf "%s/" .Lang) }}">
-  {{ end }}
-  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
-  
+  {{ partial "head.html" . }}
   {{ block "jsonld" . }}{{ end }}
 </head>
 <body>

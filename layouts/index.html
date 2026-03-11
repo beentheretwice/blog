@@ -12,17 +12,19 @@
   {{ if $pages }}
     {{ range first 10 $pages }}
     <article class="post-card">
-      {{ with .Params.image }}
-      <div class="post-card-image">
-        <img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="{{ $.Title }}" loading="lazy">
-      </div>
-      {{ end }}
-      <div class="post-card-content">
-        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_medium" }}</time>
-        {{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
-        <a href="{{ .Permalink }}" class="read-more">{{ i18n "readMore" | default "Read more" }} →</a>
-      </div>
+      <a href="{{ .Permalink }}" class="post-card-link">
+        {{ with .Params.image }}
+        <div class="post-card-image">
+          <img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="{{ $.Title }}" loading="lazy" decoding="async">
+        </div>
+        {{ end }}
+        <div class="post-card-content">
+          <h3>{{ .Title }}</h3>
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_medium" }}</time>
+          {{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
+          <span class="read-more">{{ i18n "readMore" | default "Read more" }} →</span>
+        </div>
+      </a>
     </article>
     {{ end }}
   {{ else }}

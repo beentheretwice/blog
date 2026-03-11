@@ -30,6 +30,7 @@
   --space-md: 1rem;
   --space-lg: 2rem;
   --space-xl: 3rem;
+  --space-xxl: 4rem;
   
   /* Border radius */
   --radius-sm: 4px;
@@ -212,6 +213,17 @@ main {
   box-shadow: var(--shadow-3);
 }
 
+/* Make entire card clickable */
+.post-card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.post-card-link:hover {
+  color: inherit;
+}
+
 .post-card-image {
   width: 100%;
   height: 200px;
@@ -242,13 +254,11 @@ main {
   font-size: 1.25rem;
   font-weight: 500;
   line-height: 1.4;
-}
-
-.post-card h3 a {
   color: var(--text);
+  transition: color 0.2s ease;
 }
 
-.post-card h3 a:hover {
+.post-card:hover h3 {
   color: var(--primary);
 }
 
@@ -612,16 +622,26 @@ article.post .content a:hover {
 
 /* Back Link */
 .back-link {
-  margin-top: var(--space-xl);
-  padding-top: var(--space-lg);
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
   border-top: 1px solid var(--divider);
 }
 
 .back-link a {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
   color: var(--primary);
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 0.9375rem;
+  padding: 0;
+  border: none;
+  background: none;
+  transition: gap 0.2s ease;
+}
+
+.back-link a:hover {
+  gap: var(--space-sm);
 }
 
 /* ============================================
@@ -749,8 +769,8 @@ footer a:hover {
 .cta-block {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   border-radius: var(--radius-lg);
-  padding: var(--space-xxl) var(--space-lg);
-  margin: var(--space-xxl) 0;
+  padding: var(--space-xl) var(--space-lg);
+  margin: var(--space-xl) 0 0 0;
   box-shadow: var(--shadow-2);
   position: relative;
   overflow: hidden;
@@ -852,5 +872,183 @@ footer a:hover {
 
   .btn {
     width: 100%;
+  }
+}
+
+/* ============================================
+   SOCIAL SHARE BUTTONS
+   ============================================ */
+.share-buttons {
+  margin: var(--space-xl) 0;
+  padding: var(--space-lg);
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--divider);
+}
+
+.share-label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: var(--space-md);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.share-buttons-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.share-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-2);
+  color: white;
+}
+
+.share-btn svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.share-btn.twitter {
+  background: #1DA1F2;
+}
+
+.share-btn.twitter:hover {
+  background: #0D8BD9;
+}
+
+.share-btn.facebook {
+  background: #4267B2;
+}
+
+.share-btn.facebook:hover {
+  background: #365899;
+}
+
+.share-btn.linkedin {
+  background: #0077B5;
+}
+
+.share-btn.linkedin:hover {
+  background: #005885;
+}
+
+.share-btn.whatsapp {
+  background: #25D366;
+}
+
+.share-btn.whatsapp:hover {
+  background: #1DA851;
+}
+
+.share-btn.email {
+  background: var(--text-secondary);
+}
+
+.share-btn.email:hover {
+  background: var(--text);
+}
+
+@media (max-width: 768px) {
+  .share-buttons-list {
+    flex-direction: column;
+  }
+  
+  .share-btn {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+/* ============================================
+   ENHANCED RELATED POSTS
+   ============================================ */
+.related-posts {
+  margin: var(--space-xl) 0;
+  padding: var(--space-lg);
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--divider);
+}
+
+.related-posts h2 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: var(--space-lg);
+  color: var(--text);
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--space-md);
+}
+
+.related-card {
+  display: block;
+  background: var(--bg);
+  border: 1px solid var(--divider);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.related-card:hover {
+  box-shadow: var(--shadow-2);
+  transform: translateY(-2px);
+  border-color: var(--primary);
+}
+
+.related-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  background: var(--primary-bg);
+}
+
+.related-card h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: var(--space-md);
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.related-card:hover h3 {
+  color: var(--primary);
+}
+
+.related-card time {
+  display: block;
+  padding: 0 var(--space-md) var(--space-md);
+  font-size: 0.875rem;
+  color: var(--text-hint);
+}
+
+@media (max-width: 768px) {
+  .related-grid {
+    grid-template-columns: 1fr;
   }
 }
