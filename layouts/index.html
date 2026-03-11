@@ -15,11 +15,17 @@
       <a href="{{ $page.Permalink }}" class="post-card-link">
         {{ with $page.Params.image }}
         <div class="post-card-image">
+          {{ $loading := "lazy" }}
+          {{ $fetchpriority := "low" }}
+          {{ if eq $index 0 }}
+            {{ $loading = "eager" }}
+            {{ $fetchpriority = "high" }}
+          {{ end }}
           {{ partial "optimized-image.html" (dict
             "src" .
             "alt" $page.Title
-            "loading" (if eq $index 0 "eager" "lazy")
-            "fetchpriority" (if eq $index 0 "high" "low")
+            "loading" $loading
+            "fetchpriority" $fetchpriority
             "width" 800
             "height" 450
           )}}
