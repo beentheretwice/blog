@@ -1,4 +1,4 @@
-{{/* Head Partial with Open Graph, Twitter Cards, and Performance Optimizations */}}
+{{/* Head Partial with Critical CSS, Open Graph, Twitter Cards, and Performance Optimizations */}}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
@@ -12,28 +12,139 @@
 {{/* Canonical URL */}}
 <link rel="canonical" href="{{ .Permalink }}">
 
-{{/* Alternate Languages */}}
+{{/* Alternate Languages - FIXED with proper full URLs */}}
 {{ range .Site.Languages }}
-<link rel="alternate" hreflang="{{ .Lang }}" href="{{ relURL (printf "%s/" .Lang) }}">
+<link rel="alternate" hreflang="{{ .Lang }}" href="{{ $.Site.BaseURL }}{{ .Lang }}/">
 {{ end }}
+<link rel="alternate" hreflang="x-default" href="{{ .Site.BaseURL }}">
 
 {{/* Preconnect for Performance */}}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-{{/* Preload critical images for LCP optimization */}}
+{{/* CRITICAL CSS INLINE - Above-fold styles for LCP */}}
+<style>
+  :root {
+    --primary: #2E7D32;
+    --primary-dark: #1B5E20;
+    --primary-light: #4CAF50;
+    --primary-bg: #E8F5E9;
+    --bg: #FAFAFA;
+    --bg-card: #FFFFFF;
+    --text: #212121;
+    --text-secondary: #757575;
+    --divider: #E0E0E0;
+    --shadow-1: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    --shadow-2: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--primary); text-decoration: underline; text-underline-offset: 2px; }
+  a:hover { color: var(--primary-dark); text-decoration-thickness: 2px; }
+  
+  /* Header styles - critical for above-fold */
+  header {
+    background: var(--primary);
+    color: white;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-2);
+  }
+  header nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-md) var(--space-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+  header nav .brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: white;
+  }
+  header nav .lang-switch a {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.875rem;
+    padding: 0.25rem 1rem;
+    border-radius: 4px;
+  }
+  
+  /* Main layout */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-lg);
+    min-height: calc(100vh - 200px);
+  }
+  
+  /* Hero section - above fold */
+  .hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    padding: var(--space-xl) var(--space-lg);
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--space-xl);
+    text-align: center;
+    box-shadow: var(--shadow-2);
+    color: white;
+  }
+  .hero h1 { font-size: 2.25rem; font-weight: 300; margin-bottom: var(--space-sm); }
+  .hero p { color: rgba(255,255,255,0.9); font-size: 1.125rem; max-width: 600px; margin: 0 auto; }
+  
+  /* Post card image placeholder for CLS prevention */
+  .post-card-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: var(--primary-bg);
+    aspect-ratio: 16 / 9;
+  }
+  .post-card { background: var(--bg-card); border-radius: var(--radius-lg); margin-bottom: var(--space-lg); box-shadow: var(--shadow-1); overflow: hidden; }
+  .post-card-content { padding: var(--space-lg); }
+  .post-card h3 { margin: 0 0 var(--space-sm); font-size: 1.25rem; font-weight: 500; color: var(--text); }
+  
+  /* Accessibility fixes */
+  .tldr-box { border-color: #1B5E20; }
+  .back-link a { color: #1B5E20; text-decoration: underline; }
+</style>
+
+{{/* Preload critical assets */}}
+<link rel="preload" as="style" href="{{ "css/style.css" | relURL }}">
 {{ if .IsHome }}
 {{ with .Site.RegularPages }}
 {{ range first 1 . }}
 {{ with .Params.image }}
-<link rel="preload" as="image" href="{{ strings.TrimPrefix "/" . | relURL }}" fetchpriority="high">
+{{ $webpSrc := replaceRE `\.png$` ".webp" . }}
+<link rel="preload" as="image" href="{{ strings.TrimPrefix "/" $webpSrc | relURL }}" type="image/webp" fetchpriority="high">
 {{ end }}
 {{ end }}
 {{ end }}
 {{ end }}
 
-{{/* Stylesheet */}}
-<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+{{/* Defer non-critical CSS */}}
+<link rel="stylesheet" href="{{ "css/style.css" | relURL }}" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="{{ "css/style.css" | relURL }}"></noscript>
 
 {{/* RSS Feed */}}
 {{ with .OutputFormats.Get "rss" -}}
@@ -50,11 +161,13 @@
 
 {{/* Open Graph Image */}}
 {{ if .Params.image }}
-<meta property="og:image" content="{{ .Params.image | absURL }}">
+{{ $webpOG := replaceRE `\.png$` ".webp" .Params.image }}
+<meta property="og:image" content="{{ $webpOG | absURL }}">
 {{ else if .Params.cover }}
-<meta property="og:image" content="{{ .Params.cover | absURL }}">
+{{ $webpCover := replaceRE `\.png$` ".webp" .Params.cover }}
+<meta property="og:image" content="{{ $webpCover | absURL }}">
 {{ else }}
-<meta property="og:image" content="{{ "images/blog-og.png" | absURL }}">
+<meta property="og:image" content="{{ "images/blog-og.webp" | absURL }}">
 {{ end }}
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -69,11 +182,13 @@
 
 {{/* Twitter Image */}}
 {{ if .Params.image }}
-<meta name="twitter:image" content="{{ .Params.image | absURL }}">
+{{ $webpTw := replaceRE `\.png$` ".webp" .Params.image }}
+<meta name="twitter:image" content="{{ $webpTw | absURL }}">
 {{ else if .Params.cover }}
-<meta name="twitter:image" content="{{ .Params.cover | absURL }}">
+{{ $webpTwCover := replaceRE `\.png$` ".webp" .Params.cover }}
+<meta name="twitter:image" content="{{ $webpTwCover | absURL }}">
 {{ else }}
-<meta name="twitter:image" content="{{ "images/blog-og.png" | absURL }}">
+<meta name="twitter:image" content="{{ "images/blog-og.webp" | absURL }}">
 {{ end }}
 
 {{/* Additional SEO Tags */}}

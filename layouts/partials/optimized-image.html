@@ -1,0 +1,43 @@
+{{/* Optimized Image Partial with WebP support and PNG fallback
+  
+  Usage: {{ partial "optimized-image.html" (dict 
+    "src" "/images/welcome-cover.png"
+    "alt" "Welcome Cover"
+    "class" "post-cover"
+    "loading" "eager"
+    "fetchpriority" "high"
+    "width" 1200
+    "height" 675
+  )}}
+  
+  Outputs a <picture> element with WebP source and PNG fallback
+*/}}
+{{ $src := .src }}
+{{ $alt := .alt | default "" }}
+{{ $class := .class | default "" }}
+{{ $loading := .loading | default "lazy" }}
+{{ $fetchpriority := .fetchpriority | default "low" }}
+{{ $width := .width | default 800 }}
+{{ $height := .height | default 450 }}
+
+{{/* Remove leading slash for relURL */}}
+{{ if hasPrefix $src "/" }}
+  {{ $src = strings.TrimPrefix "/" $src }}
+{{ end }}
+
+{{/* Generate WebP path */}}
+{{ $webpSrc := replaceRE `\.png$` ".webp" $src }}
+
+<picture class="{{ $class }}">
+  <source srcset="{{ $webpSrc | relURL }}" type="image/webp">
+  <img 
+    src="{{ $src | relURL }}" 
+    alt="{{ $alt }}"
+    loading="{{ $loading }}"
+    decoding="async"
+    fetchpriority="{{ $fetchpriority }}"
+    width="{{ $width }}"
+    height="{{ $height }}"
+    style="width: 100%; height: auto; object-fit: cover;"
+  >
+</picture>
