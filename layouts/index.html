@@ -10,18 +10,27 @@
   {{ $pages := .Site.RegularPages }}
   
   {{ if $pages }}
-    {{ range first 10 $pages }}
+    {{ range $index, $page := first 10 $pages }}
     <article class="post-card">
-      <a href="{{ .Permalink }}" class="post-card-link">
-        {{ with .Params.image }}
+      <a href="{{ $page.Permalink }}" class="post-card-link">
+        {{ with $page.Params.image }}
         <div class="post-card-image">
-          <img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="{{ $.Title }}" loading="lazy" decoding="async">
+          <img 
+            src="{{ strings.TrimPrefix "/" . | relURL }}" 
+            alt="{{ $page.Title }}" 
+            loading="{{ if eq $index 0 }}eager{{ else }}lazy{{ end }}" 
+            decoding="async"
+            fetchpriority="{{ if eq $index 0 }}high{{ else }}low{{ end }}"
+            width="800"
+            height="450"
+            style="width: 100%; height: auto; object-fit: cover;"
+          >
         </div>
         {{ end }}
         <div class="post-card-content">
-          <h3>{{ .Title }}</h3>
-          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_medium" }}</time>
-          {{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
+          <h3>{{ $page.Title }}</h3>
+          <time datetime="{{ $page.Date.Format "2006-01-02" }}">{{ $page.Date | time.Format ":date_medium" }}</time>
+          {{ with $page.Description }}<p class="description">{{ . }}</p>{{ end }}
           <span class="read-more">{{ i18n "readMore" | default "Read more" }} →</span>
         </div>
       </a>
