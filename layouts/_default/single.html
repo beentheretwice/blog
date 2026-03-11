@@ -11,7 +11,16 @@
   <!-- Cover Image -->
   {{ with .Params.cover }}
   <div class="post-cover">
-    <img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="{{ $.Title }} - Cover Image" loading="eager" decoding="async">
+    <img 
+      src="{{ strings.TrimPrefix "/" . | relURL }}" 
+      alt="{{ $.Title }} - Cover Image" 
+      loading="eager" 
+      decoding="async"
+      fetchpriority="high"
+      width="1200"
+      height="675"
+      style="width: 100%; height: auto; object-fit: cover;"
+    >
   </div>
   {{ end }}
   
