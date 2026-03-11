@@ -8,19 +8,18 @@
   </div>
   {{ end }}
   
-  <!-- Cover Image -->
+  <!-- Cover Image with WebP -->
   {{ with .Params.cover }}
   <div class="post-cover">
-    <img 
-      src="{{ strings.TrimPrefix "/" . | relURL }}" 
-      alt="{{ $.Title }} - Cover Image" 
-      loading="eager" 
-      decoding="async"
-      fetchpriority="high"
-      width="1200"
-      height="675"
-      style="width: 100%; height: auto; object-fit: cover;"
-    >
+    {{ partial "optimized-image.html" (dict
+      "src" .
+      "alt" (printf "%s - Cover Image" $.Title)
+      "class" "post-cover"
+      "loading" "eager"
+      "fetchpriority" "high"
+      "width" 1200
+      "height" 675
+    )}}
   </div>
   {{ end }}
   

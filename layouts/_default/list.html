@@ -8,15 +8,13 @@
     <a href="{{ .Permalink }}" class="post-card-link">
       {{ with .Params.image }}
       <div class="post-card-image">
-        <img 
-          src="{{ strings.TrimPrefix "/" . | relURL }}" 
-          alt="{{ $.Title }}" 
-          loading="lazy" 
-          decoding="async"
-          width="800"
-          height="450"
-          style="width: 100%; height: auto; object-fit: cover;"
-        >
+        {{ partial "optimized-image.html" (dict
+          "src" .
+          "alt" $.Title
+          "loading" "lazy"
+          "width" 800
+          "height" 450
+        )}}
       </div>
       {{ end }}
       <div class="post-card-content">

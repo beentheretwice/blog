@@ -1,20 +1,26 @@
-{{/* Image render hook - adds relURL to image paths and optimization attributes */}}
+{{/* Image render hook with WebP support and optimization */}}
 {{ $url := .Destination }}
 {{ $alt := .Text | plainify }}
 {{ $title := .Title }}
+
 {{/* Remove leading slash for relURL to work correctly */}}
 {{ if hasPrefix $url "/" }}
   {{ $url = strings.TrimPrefix "/" $url }}
 {{ end }}
-{{/* All images use lazy loading by default, except those explicitly marked as eager */}}
-{{ $loading := "lazy" }}
-<img 
-  src="{{ $url | relURL }}" 
-  alt="{{ $alt }}" 
-  {{ with $title }}title="{{ $title }}"{{ end }} 
-  loading="{{ $loading }}"
-  decoding="async"
-  width="1200"
-  height="675"
-  style="width: 100%; height: auto;"
->
+
+{{/* Generate WebP path */}}
+{{ $webpUrl := replaceRE `\.png$` ".webp" $url }}
+
+<picture>
+  <source srcset="{{ $webpUrl | relURL }}" type="image/webp">
+  <img 
+    src="{{ $url | relURL }}" 
+    alt="{{ $alt }}" 
+    {{ with $title }}title="{{ $title }}"{{ end }} 
+    loading="lazy"
+    decoding="async"
+    width="1200"
+    height="675"
+    style="width: 100%; height: auto;"
+  >
+</picture>

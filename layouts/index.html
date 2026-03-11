@@ -15,16 +15,14 @@
       <a href="{{ $page.Permalink }}" class="post-card-link">
         {{ with $page.Params.image }}
         <div class="post-card-image">
-          <img 
-            src="{{ strings.TrimPrefix "/" . | relURL }}" 
-            alt="{{ $page.Title }}" 
-            loading="{{ if eq $index 0 }}eager{{ else }}lazy{{ end }}" 
-            decoding="async"
-            fetchpriority="{{ if eq $index 0 }}high{{ else }}low{{ end }}"
-            width="800"
-            height="450"
-            style="width: 100%; height: auto; object-fit: cover;"
-          >
+          {{ partial "optimized-image.html" (dict
+            "src" .
+            "alt" $page.Title
+            "loading" (if eq $index 0 "eager" "lazy")
+            "fetchpriority" (if eq $index 0 "high" "low")
+            "width" 800
+            "height" 450
+          )}}
         </div>
         {{ end }}
         <div class="post-card-content">
