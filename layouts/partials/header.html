@@ -4,10 +4,46 @@
       <img src="{{ "images/logo.svg" | relURL }}" alt="WaqtSalat" class="logo">
       <span>{{ .Site.Title }}</span>
     </a>
-    <div class="lang-switch">
-      {{ range .Site.Languages }}
-      <a href="{{ relURL (printf "%s/" .Lang) }}">{{ .LanguageName }}</a>
-      {{ end }}
+    <div class="lang-switch" id="lang-switch">
+      <button class="lang-toggle" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Select language">
+        <span class="lang-current">{{ .Site.Language.LanguageName }}</span>
+        <svg class="lang-arrow" width="12" height="8" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+      </button>
+      <div class="lang-dropdown" id="lang-dropdown">
+        {{ range .Site.Languages }}
+        <a href="{{ relURL (printf "%s/" .Lang) }}"{{ if eq .Lang $.Site.Language.Lang }} class="active" aria-current="true"{{ end }}>{{ .LanguageName }}</a>
+        {{ end }}
+      </div>
     </div>
   </nav>
 </header>
+<script>
+// Mobile language dropdown toggle
+(function() {
+  const toggle = document.getElementById('lang-toggle');
+  const dropdown = document.getElementById('lang-dropdown');
+  if (!toggle || !dropdown) return;
+  
+  toggle.addEventListener('click', function() {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', !expanded);
+    dropdown.classList.toggle('open', !expanded);
+  });
+  
+  // Close on click outside
+  document.addEventListener('click', function(e) {
+    if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
+      toggle.setAttribute('aria-expanded', 'false');
+      dropdown.classList.remove('open');
+    }
+  });
+  
+  // Close on escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      toggle.setAttribute('aria-expanded', 'false');
+      dropdown.classList.remove('open');
+    }
+  });
+})();
+</script>
