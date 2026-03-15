@@ -1,3 +1,18 @@
+{{- if and (eq .Site.Language.Lang "en") (.IsHome) -}}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>WaqtSalat Blog - مدونة وقت الصلاة</title>
+    <meta http-equiv="refresh" content="0; url={{ "/ar/" | relURL }}">
+    <link rel="canonical" href="{{ "/ar/" | relURL }}">
+    <script>window.location.href = '{{ "/ar/" | relURL }}' + window.location.hash;</script>
+</head>
+<body>
+    <p>Redirecting to Arabic version... <a href="{{ "/ar/" | relURL }}">Click here if not redirected</a></p>
+</body>
+</html>
+{{- else -}}
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Lang }}" dir="{{ .Site.Language.LanguageDirection | default "ltr" }}">
 <head>
@@ -10,3 +25,4 @@
   {{ partial "footer.html" . }}
 </body>
 </html>
+{{- end -}}
