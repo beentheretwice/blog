@@ -198,3 +198,6 @@
 {{ with .Keywords }}
 <meta name="keywords" content="{{ . }}">
 {{ end }}
+
+{{/* Language Preference Script - Load early to redirect before rendering */}}
+<script src="{{ "js/lang-preference.js" | relURL }}"></script>
