@@ -379,6 +379,63 @@ open http://localhost:1313/blog/
 ./scripts/check-seo.sh
 ```
 
+## Islamic Cultural Guidelines
+
+### Prayer Imagery
+
+**❌ NEVER show:**
+- People using phones/devices while in prayer position
+- Mixed genders praying together
+- People facing each other during prayer (should face Qibla)
+- Incorrect prayer postures
+
+**✅ DO show:**
+- Empty mosque interiors
+- People checking prayer times BEFORE prayer
+- Prayer rugs arranged facing Qibla (no people)
+- Abstract/geometric Islamic art
+
+### Dress Code for People
+
+**For Moroccan Audience:**
+- Men: Djellaba (traditional robe), Takia (red fez with black tassel)
+- Women: Hijab with modest clothing
+- **NOT:** Keffiyeh/ghutra (Middle Eastern, not Moroccan)
+
+**Always verify:**
+- Head coverings match Moroccan culture (Takia, not keffiyeh)
+- Clothing is modest and appropriate
+- No bare heads for men in religious contexts
+
+### Image Review Checklist
+
+Before using any image with people:
+
+- [ ] **Are people in prayer position?** If yes, NO devices/distractions
+- [ ] **Are genders separated?** Men and women don't pray together
+- [ ] **Is everyone facing Qibla?** Same direction, not each other
+- [ ] **Is attire culturally correct?** Moroccan Takia, not Middle Eastern keffiyeh
+- [ ] **Would this offend Muslim users?** When in doubt, use empty mosques
+
+### Generation Prompt Template
+
+**For mosque/community images:**
+```
+Empty Moroccan mosque interior, NO people visible. Traditional 
+Moroccan architecture: zellige tiles, horseshoe arches, carved 
+wood. Prayer rugs arranged facing mihrab (Qibla). Soft natural 
+light. Warm earth tones with green and gold accents. Clean, 
+modern illustration style.
+```
+
+**For people images:**
+```
+Moroccan [man/woman] wearing traditional djellaba and 
+[red Takia/hijab], sitting casually (NOT praying). Holding 
+smartphone. Atlas Mountains and Moroccan kasbah in background. 
+Warm sunset lighting. Clean, modern illustration style.
+```
+
 ## References
 
 - [Hugo Documentation](https://gohugo.io/documentation/)
