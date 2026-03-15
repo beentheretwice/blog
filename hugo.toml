@@ -23,7 +23,7 @@ rssLimit = 20
   jsonLD = true
 
 # Multilingual configuration
-defaultContentLanguage = "en"
+defaultContentLanguage = "ar"
 defaultContentLanguageInSubdir = true
 
 [languages]
