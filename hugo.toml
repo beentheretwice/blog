@@ -24,7 +24,7 @@ rssLimit = 20
 
 # Multilingual configuration
 defaultContentLanguage = "ar"
-defaultContentLanguageInSubdir = false
+defaultContentLanguageInSubdir = true
 
 [languages]
   [languages.ar]
