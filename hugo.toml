@@ -1,6 +1,6 @@
 baseURL = 'https://waqtsalat.github.io/blog/'
-languageCode = 'en-us'
-title = 'WaqtSalat Blog'
+languageCode = 'ar'
+title = 'مدونة وقت الصلاة'
 
 # Enable Emoji rendering
 enableEmoji = true
@@ -23,31 +23,31 @@ rssLimit = 20
   jsonLD = true
 
 # Multilingual configuration
-defaultContentLanguage = "en"
-defaultContentLanguageInSubdir = true
+defaultContentLanguage = "ar"
+defaultContentLanguageInSubdir = false
 
 [languages]
+  [languages.ar]
+    languageCode = "ar"
+    languageName = "العربية"
+    languageDirection = "rtl"
+    weight = 1
+    title = "مدونة وقت الصلاة"
+    contentDir = "content/ar"
+    
   [languages.en]
     languageCode = "en"
     languageName = "English"
-    weight = 1
+    weight = 2
     title = "WaqtSalat Blog"
     contentDir = "content/en"
     
   [languages.fr]
     languageCode = "fr"
     languageName = "Français"
-    weight = 2
+    weight = 3
     title = "Blog WaqtSalat"
     contentDir = "content/fr"
-    
-  [languages.ar]
-    languageCode = "ar"
-    languageName = "العربية"
-    languageDirection = "rtl"
-    weight = 3
-    title = "مدونة وقت الصلاة"
-    contentDir = "content/ar"
 
 # Menu
 [menus]
